@@ -1,0 +1,159 @@
+{
+    "eval_set_id": "trajectory_matching_rules",
+    "name": "Trajectory Matching Rules",
+    "description": "Defines mandatory and forbidden tool sequences for a 3-step procurement pipeline.",
+    "eval_cases": [
+        {
+            "eval_id": "mandatory_full_pipeline",
+            "conversation": [
+                {
+                    "invocation_id": "inv_mandatory_001",
+                    "user_content": {
+                        "parts": [
+                            {
+                                "text": "I need a 14-inch standard laptop for the engineering department."
+                            }
+                        ],
+                        "role": "user"
+                    },
+                    "final_response": {
+                        "parts": [
+                            {
+                                "text": ""
+                            }
+                        ],
+                        "role": "model"
+                    },
+                    "intermediate_data": {
+                        "intermediate_responses": [],
+                        "tool_uses": [
+                            {
+                                "name": "check_catalog",
+                                "args": {
+                                    "req": {
+                                        "item_id": "laptop_std_14"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "check_budget",
+                                "args": {
+                                    "req": {
+                                        "department": "engineering"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "place_order",
+                                "args": {
+                                    "req": {
+                                        "item_id": "laptop_std_14",
+                                        "department": "engineering",
+                                        "price": 1299.0
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            ],
+            "session_input": {
+                "app_name": "ch_04_02_trajectory_matching",
+                "user_id": "evaluator",
+                "state": {}
+            }
+        },
+        {
+            "eval_id": "forbidden_item_not_found",
+            "conversation": [
+                {
+                    "invocation_id": "inv_forbidden_001",
+                    "user_content": {
+                        "parts": [
+                            {
+                                "text": "Can you order a quantum laptop for the engineering department?"
+                            }
+                        ],
+                        "role": "user"
+                    },
+                    "final_response": {
+                        "parts": [
+                            {
+                                "text": ""
+                            }
+                        ],
+                        "role": "model"
+                    },
+                    "intermediate_data": {
+                        "intermediate_responses": [],
+                        "tool_uses": [
+                            {
+                                "name": "check_catalog",
+                                "args": {
+                                    "req": {
+                                        "item_id": "quantum_laptop"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            ],
+            "session_input": {
+                "app_name": "ch_04_02_trajectory_matching",
+                "user_id": "evaluator",
+                "state": {}
+            }
+        },
+        {
+            "eval_id": "forbidden_budget_frozen",
+            "conversation": [
+                {
+                    "invocation_id": "inv_forbidden_002",
+                    "user_content": {
+                        "parts": [
+                            {
+                                "text": "I need a 14-inch standard laptop for the marketing department."
+                            }
+                        ],
+                        "role": "user"
+                    },
+                    "final_response": {
+                        "parts": [
+                            {
+                                "text": ""
+                            }
+                        ],
+                        "role": "model"
+                    },
+                    "intermediate_data": {
+                        "intermediate_responses": [],
+                        "tool_uses": [
+                            {
+                                "name": "check_catalog",
+                                "args": {
+                                    "req": {
+                                        "item_id": "laptop_std_14"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "check_budget",
+                                "args": {
+                                    "req": {
+                                        "department": "marketing"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            ],
+            "session_input": {
+                "app_name": "ch_04_02_trajectory_matching",
+                "user_id": "evaluator",
+                "state": {}
+            }
+        }
+    ]
+}

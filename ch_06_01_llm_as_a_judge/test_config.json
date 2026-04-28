@@ -1,0 +1,37 @@
+{
+    "criteria": {
+        "rubric_based_final_response_quality_v1": {
+            "threshold": 0.8,
+            "judge_model_options": {
+                "judge_model": "gemini-3-flash-preview",
+                "num_samples": 3
+            },
+            "rubrics": [
+                {
+                    "rubric_id": "professional_tone",
+                    "rubric_content": {
+                        "text_property": "The agent's response uses a professional, enterprise-appropriate tone. It avoids casual language, slang, or overly informal phrasing."
+                    }
+                },
+                {
+                    "rubric_id": "actionable_detail",
+                    "rubric_content": {
+                        "text_property": "The agent's response includes specific, actionable details such as item names, prices, transaction IDs, or concrete reasons for denial. It does not give vague or generic answers."
+                    }
+                },
+                {
+                    "rubric_id": "refusal_justification",
+                    "rubric_content": {
+                        "text_property": "When the agent refuses or denies a request, it provides a clear, policy-grounded justification that explains WHY the request cannot be fulfilled, referencing the specific constraint (e.g., budget frozen, item restricted, item not found)."
+                    }
+                },
+                {
+                    "rubric_id": "no_hallucinated_data",
+                    "rubric_content": {
+                        "text_property": "The agent does not fabricate prices, transaction IDs, item names, or budget figures that were not returned by its tools. All data in the response is grounded in actual tool outputs."
+                    }
+                }
+            ]
+        }
+    }
+}

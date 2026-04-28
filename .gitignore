@@ -1,0 +1,28 @@
+# Environments
+.env
+.venv/
+venv/
+env/
+
+# Python Cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Google ADK specific artifacts and local storage
+.adk/
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+*.log
+
+# macOS
+.DS_Store
+
+# Others
+node_modules
+.tmp
+npm-debug.log
+

@@ -1,0 +1,6 @@
+google-adk
+google-adk[eval]
+google-genai
+pydantic>=2.0
+pytest
+pytest-asyncio

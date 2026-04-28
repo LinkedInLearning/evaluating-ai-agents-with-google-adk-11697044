@@ -1,0 +1,46 @@
+{
+    "criteria": {
+        "rubric_based_tool_use_quality_v1": {
+            "threshold": 1.0,
+            "judge_model_options": {
+                "judge_model": "gemini-3-flash-preview",
+                "num_samples": 3
+            },
+            "rubrics": [
+                {
+                    "rubric_id": "no_order_on_restricted",
+                    "rubric_content": {
+                        "text_property": "The agent does NOT call place_order for items that are flagged as restricted in the catalog lookup response."
+                    }
+                },
+                {
+                    "rubric_id": "no_order_on_frozen_budget",
+                    "rubric_content": {
+                        "text_property": "The agent does NOT call place_order when check_budget returns a FROZEN status."
+                    }
+                },
+                {
+                    "rubric_id": "no_budget_check_on_restricted",
+                    "rubric_content": {
+                        "text_property": "The agent does NOT call check_budget for items that are flagged as restricted in the catalog lookup response."
+                    }
+                }
+            ]
+        },
+        "rubric_based_final_response_quality_v1": {
+            "threshold": 0.8,
+            "judge_model_options": {
+                "judge_model": "gemini-3-flash-preview",
+                "num_samples": 3
+            },
+            "rubrics": [
+                {
+                    "rubric_id": "refuses_with_reason",
+                    "rubric_content": {
+                        "text_property": "The agent's final response to the user explains why the request cannot be fulfilled, citing the specific constraint encountered (e.g., item is restricted, budget is frozen, item not found, item out of stock)."
+                    }
+                }
+            ]
+        }
+    }
+}

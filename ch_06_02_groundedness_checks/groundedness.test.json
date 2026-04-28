@@ -1,0 +1,217 @@
+{
+    "eval_set_id": "groundedness_checks",
+    "eval_cases": [
+        {
+            "eval_id": "grounded_happy_path",
+            "conversation": [
+                {
+                    "invocation_id": "inv_grounded_001",
+                    "user_content": {
+                        "parts": [
+                            {
+                                "text": "I need a 14-inch standard laptop for the engineering department."
+                            }
+                        ],
+                        "role": "user"
+                    },
+                    "final_response": {
+                        "parts": [
+                            {
+                                "text": ""
+                            }
+                        ],
+                        "role": "model"
+                    },
+                    "intermediate_data": {
+                        "intermediate_responses": [],
+                        "tool_uses": [
+                            {
+                                "name": "check_catalog",
+                                "args": {
+                                    "req": {
+                                        "item_id": "laptop_std_14"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "check_budget",
+                                "args": {
+                                    "req": {
+                                        "department": "engineering"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "place_order",
+                                "args": {
+                                    "req": {
+                                        "item_id": "laptop_std_14",
+                                        "department": "engineering",
+                                        "price": 1299.0
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            ],
+            "session_input": {
+                "app_name": "ch_06_02_groundedness_checks",
+                "user_id": "evaluator",
+                "state": {}
+            }
+        },
+        {
+            "eval_id": "grounded_budget_freeze",
+            "conversation": [
+                {
+                    "invocation_id": "inv_grounded_002",
+                    "user_content": {
+                        "parts": [
+                            {
+                                "text": "Can you order a 14-inch standard laptop for the marketing department?"
+                            }
+                        ],
+                        "role": "user"
+                    },
+                    "final_response": {
+                        "parts": [
+                            {
+                                "text": ""
+                            }
+                        ],
+                        "role": "model"
+                    },
+                    "intermediate_data": {
+                        "intermediate_responses": [],
+                        "tool_uses": [
+                            {
+                                "name": "check_catalog",
+                                "args": {
+                                    "req": {
+                                        "item_id": "laptop_std_14"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "check_budget",
+                                "args": {
+                                    "req": {
+                                        "department": "marketing"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            ],
+            "session_input": {
+                "app_name": "ch_06_02_groundedness_checks",
+                "user_id": "evaluator",
+                "state": {}
+            }
+        },
+        {
+            "eval_id": "grounded_restricted_item",
+            "conversation": [
+                {
+                    "invocation_id": "inv_grounded_003",
+                    "user_content": {
+                        "parts": [
+                            {
+                                "text": "Order a rack_server for the engineering department."
+                            }
+                        ],
+                        "role": "user"
+                    },
+                    "final_response": {
+                        "parts": [
+                            {
+                                "text": ""
+                            }
+                        ],
+                        "role": "model"
+                    },
+                    "intermediate_data": {
+                        "intermediate_responses": [],
+                        "tool_uses": [
+                            {
+                                "name": "check_catalog",
+                                "args": {
+                                    "req": {
+                                        "item_id": "rack_server"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            ],
+            "session_input": {
+                "app_name": "ch_06_02_groundedness_checks",
+                "user_id": "evaluator",
+                "state": {}
+            }
+        },
+        {
+            "eval_id": "grounded_security_purchase",
+            "conversation": [
+                {
+                    "invocation_id": "inv_grounded_004",
+                    "user_content": {
+                        "parts": [
+                            {
+                                "text": "I need to order a single hardware_mfa_token for the security department."
+                            }
+                        ],
+                        "role": "user"
+                    },
+                    "final_response": {
+                        "parts": [
+                            {
+                                "text": ""
+                            }
+                        ],
+                        "role": "model"
+                    },
+                    "intermediate_data": {
+                        "intermediate_responses": [],
+                        "tool_uses": [
+                            {
+                                "name": "check_catalog",
+                                "args": {
+                                    "req": {
+                                        "item_id": "hardware_mfa_token"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "check_budget",
+                                "args": {
+                                    "req": {
+                                        "department": "security"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "place_order",
+                                "args": {
+                                    "req": {
+                                        "item_id": "hardware_mfa_token",
+                                        "department": "security",
+                                        "price": 55.0
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            ],
+            "session_input": {
+                "app_name": "ch_06_02_groundedness_checks",
+                "user_id": "evaluator",
+                "state": {}
+            }
+        }
+    ]
+}

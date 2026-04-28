@@ -1,0 +1,139 @@
+{
+    "eval_set_id": "memory_decay",
+    "name": "Testing Memory: Context Persistence",
+    "description": "Measures contextual memory by testing long-horizon constraint retention through a multi-turn conversation.",
+    "eval_cases": [
+        {
+            "eval_id": "long_horizon_memory",
+            "conversation": [
+                {
+                    "invocation_id": "inv_001",
+                    "user_content": {
+                        "parts": [
+                            {
+                                "text": "Hi, I'm a new employee in the engineering department. Nice to meet you."
+                            }
+                        ],
+                        "role": "user"
+                    },
+                    "final_response": {
+                        "parts": [
+                            {
+                                "text": ""
+                            }
+                        ],
+                        "role": "model"
+                    },
+                    "intermediate_data": {
+                        "intermediate_responses": [],
+                        "tool_uses": []
+                    }
+                },
+                {
+                    "invocation_id": "inv_002",
+                    "user_content": {
+                        "parts": [
+                            {
+                                "text": "In the 'hardware' category, what 'laptops' are available?"
+                            }
+                        ],
+                        "role": "user"
+                    },
+                    "final_response": {
+                        "parts": [
+                            {
+                                "text": ""
+                            }
+                        ],
+                        "role": "model"
+                    },
+                    "intermediate_data": {
+                        "intermediate_responses": [],
+                        "tool_uses": [
+                            {
+                                "name": "lookup_catalog",
+                                "args": {
+                                    "req": {
+                                        "category": "hardware",
+                                        "subcategory": "laptops"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "invocation_id": "inv_003",
+                    "user_content": {
+                        "parts": [
+                            {
+                                "text": "I also heard we have 'av_equipment' in the 'hardware' category. Can you list it?"
+                            }
+                        ],
+                        "role": "user"
+                    },
+                    "final_response": {
+                        "parts": [
+                            {
+                                "text": ""
+                            }
+                        ],
+                        "role": "model"
+                    },
+                    "intermediate_data": {
+                        "intermediate_responses": [],
+                        "tool_uses": [
+                            {
+                                "name": "lookup_catalog",
+                                "args": {
+                                    "req": {
+                                        "category": "hardware",
+                                        "subcategory": "av_equipment"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                },
+                {
+                    "invocation_id": "inv_004",
+                    "user_content": {
+                        "parts": [
+                            {
+                                "text": "Nevermind the AV stuff. Just order me the 16-inch pro laptop."
+                            }
+                        ],
+                        "role": "user"
+                    },
+                    "final_response": {
+                        "parts": [
+                            {
+                                "text": ""
+                            }
+                        ],
+                        "role": "model"
+                    },
+                    "intermediate_data": {
+                        "intermediate_responses": [],
+                        "tool_uses": [
+                            {
+                                "name": "place_order",
+                                "args": {
+                                    "req": {
+                                        "item_id": "laptop_pro_16",
+                                        "department": "engineering"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            ],
+            "session_input": {
+                "app_name": "ch_04_03_testing_memory",
+                "user_id": "evaluator",
+                "state": {}
+            }
+        }
+    ]
+}

@@ -1,0 +1,277 @@
+{
+    "eval_set_id": "pass_at_k_reliability",
+    "eval_cases": [
+        {
+            "eval_id": "happy_path_engineering",
+            "conversation": [
+                {
+                    "invocation_id": "inv_happy_001",
+                    "user_content": {
+                        "parts": [
+                            {
+                                "text": "I need a 14-inch standard laptop for the engineering department."
+                            }
+                        ],
+                        "role": "user"
+                    },
+                    "final_response": {
+                        "parts": [
+                            {
+                                "text": ""
+                            }
+                        ],
+                        "role": "model"
+                    },
+                    "intermediate_data": {
+                        "intermediate_responses": [],
+                        "tool_uses": [
+                            {
+                                "name": "check_catalog",
+                                "args": {
+                                    "req": {
+                                        "item_id": "laptop_std_14"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "check_budget",
+                                "args": {
+                                    "req": {
+                                        "department": "engineering"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "place_order",
+                                "args": {
+                                    "req": {
+                                        "item_id": "laptop_std_14",
+                                        "department": "engineering",
+                                        "price": 1299.0
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            ],
+            "session_input": {
+                "app_name": "ch_05_03_pass_at_k",
+                "user_id": "evaluator",
+                "state": {}
+            }
+        },
+        {
+            "eval_id": "budget_frozen_marketing",
+            "conversation": [
+                {
+                    "invocation_id": "inv_frozen_001",
+                    "user_content": {
+                        "parts": [
+                            {
+                                "text": "Can you order a 14-inch standard laptop for the marketing department?"
+                            }
+                        ],
+                        "role": "user"
+                    },
+                    "final_response": {
+                        "parts": [
+                            {
+                                "text": ""
+                            }
+                        ],
+                        "role": "model"
+                    },
+                    "intermediate_data": {
+                        "intermediate_responses": [],
+                        "tool_uses": [
+                            {
+                                "name": "check_catalog",
+                                "args": {
+                                    "req": {
+                                        "item_id": "laptop_std_14"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "check_budget",
+                                "args": {
+                                    "req": {
+                                        "department": "marketing"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            ],
+            "session_input": {
+                "app_name": "ch_05_03_pass_at_k",
+                "user_id": "evaluator",
+                "state": {}
+            }
+        },
+        {
+            "eval_id": "restricted_item_blocked",
+            "conversation": [
+                {
+                    "invocation_id": "inv_restricted_001",
+                    "user_content": {
+                        "parts": [
+                            {
+                                "text": "Order a legacy_vpn_appliance for the engineering department."
+                            }
+                        ],
+                        "role": "user"
+                    },
+                    "final_response": {
+                        "parts": [
+                            {
+                                "text": ""
+                            }
+                        ],
+                        "role": "model"
+                    },
+                    "intermediate_data": {
+                        "intermediate_responses": [],
+                        "tool_uses": [
+                            {
+                                "name": "check_catalog",
+                                "args": {
+                                    "req": {
+                                        "item_id": "legacy_vpn_appliance"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            ],
+            "session_input": {
+                "app_name": "ch_05_03_pass_at_k",
+                "user_id": "evaluator",
+                "state": {}
+            }
+        },
+        {
+            "eval_id": "auto_correction_sloppy_input",
+            "conversation": [
+                {
+                    "invocation_id": "inv_autocorrect_001",
+                    "user_content": {
+                        "parts": [
+                            {
+                                "text": "hey can you order me a Laptop Pro 16 for the eng dept? thx"
+                            }
+                        ],
+                        "role": "user"
+                    },
+                    "final_response": {
+                        "parts": [
+                            {
+                                "text": ""
+                            }
+                        ],
+                        "role": "model"
+                    },
+                    "intermediate_data": {
+                        "intermediate_responses": [],
+                        "tool_uses": [
+                            {
+                                "name": "check_catalog",
+                                "args": {
+                                    "req": {
+                                        "item_id": "laptop_pro_16"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "check_budget",
+                                "args": {
+                                    "req": {
+                                        "department": "engineering"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "place_order",
+                                "args": {
+                                    "req": {
+                                        "item_id": "laptop_pro_16",
+                                        "department": "engineering",
+                                        "price": 2499.0
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            ],
+            "session_input": {
+                "app_name": "ch_05_03_pass_at_k",
+                "user_id": "evaluator",
+                "state": {}
+            }
+        },
+        {
+            "eval_id": "different_department_security",
+            "conversation": [
+                {
+                    "invocation_id": "inv_security_001",
+                    "user_content": {
+                        "parts": [
+                            {
+                                "text": "I need to order a single hardware_mfa_token for the security department."
+                            }
+                        ],
+                        "role": "user"
+                    },
+                    "final_response": {
+                        "parts": [
+                            {
+                                "text": ""
+                            }
+                        ],
+                        "role": "model"
+                    },
+                    "intermediate_data": {
+                        "intermediate_responses": [],
+                        "tool_uses": [
+                            {
+                                "name": "check_catalog",
+                                "args": {
+                                    "req": {
+                                        "item_id": "hardware_mfa_token"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "check_budget",
+                                "args": {
+                                    "req": {
+                                        "department": "security"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "place_order",
+                                "args": {
+                                    "req": {
+                                        "item_id": "hardware_mfa_token",
+                                        "department": "security",
+                                        "price": 55.0
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            ],
+            "session_input": {
+                "app_name": "ch_05_03_pass_at_k",
+                "user_id": "evaluator",
+                "state": {}
+            }
+        }
+    ]
+}

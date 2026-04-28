@@ -1,0 +1,67 @@
+{
+    "eval_set_id": "tool_recall_tests",
+    "name": "Procurement Tool Trajectory Eval",
+    "description": "Validates that the agent triggers the core SOP pathway sequentially, including self-correction.",
+    "eval_cases": [
+        {
+            "eval_id": "test_standard_order_path",
+            "conversation": [
+                {
+                    "invocation_id": "inv_001",
+                    "user_content": {
+                        "parts": [
+                            {
+                                "text": "I need a 16-inch pro laptop for the engineering department."
+                            }
+                        ],
+                        "role": "user"
+                    },
+                    "final_response": {
+                        "parts": [
+                            {
+                                "text": ""
+                            }
+                        ],
+                        "role": "model"
+                    },
+                    "intermediate_data": {
+                        "intermediate_responses": [],
+                        "tool_uses": [
+                            {
+                                "name": "check_catalog",
+                                "args": {
+                                    "req": {
+                                        "item_id": "laptop_pro_16"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "check_budget",
+                                "args": {
+                                    "req": {
+                                        "department": "engineering"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "place_order",
+                                "args": {
+                                    "req": {
+                                        "item_id": "laptop_pro_16",
+                                        "department": "engineering",
+                                        "price": 2499.0
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            ],
+            "session_input": {
+                "app_name": "procurement_agent",
+                "user_id": "evaluator",
+                "state": {}
+            }
+        }
+    ]
+}

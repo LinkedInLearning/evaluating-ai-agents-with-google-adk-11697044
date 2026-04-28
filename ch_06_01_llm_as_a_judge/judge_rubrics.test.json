@@ -1,0 +1,217 @@
+{
+    "eval_set_id": "llm_judge_rubrics",
+    "eval_cases": [
+        {
+            "eval_id": "happy_path_professional_response",
+            "conversation": [
+                {
+                    "invocation_id": "inv_happy_001",
+                    "user_content": {
+                        "parts": [
+                            {
+                                "text": "I need a 14-inch standard laptop for the engineering department."
+                            }
+                        ],
+                        "role": "user"
+                    },
+                    "final_response": {
+                        "parts": [
+                            {
+                                "text": ""
+                            }
+                        ],
+                        "role": "model"
+                    },
+                    "intermediate_data": {
+                        "intermediate_responses": [],
+                        "tool_uses": [
+                            {
+                                "name": "check_catalog",
+                                "args": {
+                                    "req": {
+                                        "item_id": "laptop_std_14"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "check_budget",
+                                "args": {
+                                    "req": {
+                                        "department": "engineering"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "place_order",
+                                "args": {
+                                    "req": {
+                                        "item_id": "laptop_std_14",
+                                        "department": "engineering",
+                                        "price": 1299.0
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            ],
+            "session_input": {
+                "app_name": "ch_06_01_llm_as_a_judge",
+                "user_id": "evaluator",
+                "state": {}
+            }
+        },
+        {
+            "eval_id": "budget_frozen_refusal_quality",
+            "conversation": [
+                {
+                    "invocation_id": "inv_frozen_001",
+                    "user_content": {
+                        "parts": [
+                            {
+                                "text": "Can you order a 14-inch standard laptop for the marketing department?"
+                            }
+                        ],
+                        "role": "user"
+                    },
+                    "final_response": {
+                        "parts": [
+                            {
+                                "text": ""
+                            }
+                        ],
+                        "role": "model"
+                    },
+                    "intermediate_data": {
+                        "intermediate_responses": [],
+                        "tool_uses": [
+                            {
+                                "name": "check_catalog",
+                                "args": {
+                                    "req": {
+                                        "item_id": "laptop_std_14"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "check_budget",
+                                "args": {
+                                    "req": {
+                                        "department": "marketing"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            ],
+            "session_input": {
+                "app_name": "ch_06_01_llm_as_a_judge",
+                "user_id": "evaluator",
+                "state": {}
+            }
+        },
+        {
+            "eval_id": "restricted_item_refusal_quality",
+            "conversation": [
+                {
+                    "invocation_id": "inv_restricted_001",
+                    "user_content": {
+                        "parts": [
+                            {
+                                "text": "Order a rack_server for the engineering department."
+                            }
+                        ],
+                        "role": "user"
+                    },
+                    "final_response": {
+                        "parts": [
+                            {
+                                "text": ""
+                            }
+                        ],
+                        "role": "model"
+                    },
+                    "intermediate_data": {
+                        "intermediate_responses": [],
+                        "tool_uses": [
+                            {
+                                "name": "check_catalog",
+                                "args": {
+                                    "req": {
+                                        "item_id": "rack_server"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            ],
+            "session_input": {
+                "app_name": "ch_06_01_llm_as_a_judge",
+                "user_id": "evaluator",
+                "state": {}
+            }
+        },
+        {
+            "eval_id": "sloppy_input_graceful_handling",
+            "conversation": [
+                {
+                    "invocation_id": "inv_sloppy_001",
+                    "user_content": {
+                        "parts": [
+                            {
+                                "text": "hey can you order me a Laptop Pro 16 for the eng dept? thx"
+                            }
+                        ],
+                        "role": "user"
+                    },
+                    "final_response": {
+                        "parts": [
+                            {
+                                "text": ""
+                            }
+                        ],
+                        "role": "model"
+                    },
+                    "intermediate_data": {
+                        "intermediate_responses": [],
+                        "tool_uses": [
+                            {
+                                "name": "check_catalog",
+                                "args": {
+                                    "req": {
+                                        "item_id": "laptop_pro_16"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "check_budget",
+                                "args": {
+                                    "req": {
+                                        "department": "engineering"
+                                    }
+                                }
+                            },
+                            {
+                                "name": "place_order",
+                                "args": {
+                                    "req": {
+                                        "item_id": "laptop_pro_16",
+                                        "department": "engineering",
+                                        "price": 2499.0
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                }
+            ],
+            "session_input": {
+                "app_name": "ch_06_01_llm_as_a_judge",
+                "user_id": "evaluator",
+                "state": {}
+            }
+        }
+    ]
+}

@@ -1,0 +1,24 @@
+name: Eval Pipeline
+on:
+  push:
+    branches: [ main ]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Run Evaluations
+        env:
+          GOOGLE_API_KEY: ${{ secrets.GOOGLE_API_KEY }}
+        run: |
+          adk eval ch_02_04_first_eval ch_02_04_first_eval/tool_recall.test.json --config_file_path=ch_02_04_first_eval/test_config.json
+          adk eval ch_04_02_trajectory_matching ch_04_02_trajectory_matching/trajectory_rules.test.json --config_file_path=ch_04_02_trajectory_matching/test_config.json
+          adk eval ch_04_03_testing_memory ch_04_03_testing_memory/memory_decay.test.json --config_file_path=ch_04_03_testing_memory/test_config.json
